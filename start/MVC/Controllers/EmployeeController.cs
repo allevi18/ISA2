@@ -29,8 +29,10 @@ namespace MVC.Controllers
                 var employee = new EmployeeViewModel(e);
                 list.Add(employee);
             }
-            model.Employees = list;     
-            
+            model.Employees = list;
+            model.FooterData = new FooterViewModel();
+            model.FooterData.CompanyName = "TTÜ";
+            model.FooterData.Year = DateTime.Now.Year.ToString();       
             return View("Index", model);
         }
 

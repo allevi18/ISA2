@@ -29,6 +29,8 @@ namespace MVC
                 {
                     options.LoginPath = new PathString("/Authentication/Login");
         });
+            services.AddDistributedMemoryCache();
+            services.AddSession();
 
             services.AddMvc();
  
@@ -51,7 +53,7 @@ namespace MVC
            
             app.UseStaticFiles();
             app.UseAuthentication();
-            
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

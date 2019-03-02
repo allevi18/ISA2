@@ -14432,11 +14432,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\allevi\\start\\Infra\\Infra.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\allevi\\start\\Infra\\Infra.csproj",
       "projectName": "Infra",
-      "projectPath": "C:\\Users\\User\\Source\\Repos\\allevi\\start\\Infra\\Infra.csproj",
+      "projectPath": "C:\\Users\\User\\source\\repos\\allevi\\start\\Infra\\Infra.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Source\\Repos\\allevi\\start\\Infra\\obj\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\allevi\\start\\Infra\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -14455,11 +14455,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\User\\Source\\Repos\\allevi\\start\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\User\\Source\\Repos\\allevi\\start\\Core\\Core.csproj"
+            "C:\\Users\\User\\source\\repos\\allevi\\start\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\User\\source\\repos\\allevi\\start\\Core\\Core.csproj"
             },
-            "C:\\Users\\User\\Source\\Repos\\allevi\\start\\Facade\\Facade.csproj": {
-              "projectPath": "C:\\Users\\User\\Source\\Repos\\allevi\\start\\Facade\\Facade.csproj"
+            "C:\\Users\\User\\source\\repos\\allevi\\start\\Facade\\Facade.csproj": {
+              "projectPath": "C:\\Users\\User\\source\\repos\\allevi\\start\\Facade\\Facade.csproj"
             }
           }
         }
