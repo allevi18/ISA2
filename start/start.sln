@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj", "{06C13003-723F-494B-8BF6-B24F04AA1894}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject2", "UnitTestProject2\UnitTestProject2.csproj", "{86E725B3-C983-4504-B6C7-DFDC074FE991}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "UnitTestProject2\Tests.csproj", "{86E725B3-C983-4504-B6C7-DFDC074FE991}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

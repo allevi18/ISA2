@@ -3,11 +3,14 @@ using Core;
 using Facade;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
 using Infra;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using MVC.Filters;
 using MVC.Views;
 
 namespace MVC.Controllers
@@ -27,21 +30,23 @@ namespace MVC.Controllers
             foreach(var e in employees)
             {
                 var employee = new EmployeeViewModel(e);
+                employee.EmployeeId = e.EmployeeId;
                 list.Add(employee);
             }
             model.Employees = list;
-            model.FooterData = new FooterViewModel();
-            model.FooterData.CompanyName = "TTÜ";
-            model.FooterData.Year = DateTime.Now.Year.ToString();       
+            model.FooterData = new FooterViewModel("TTÜ"); 
             return View("Index", model);
         }
 
         [Authorize]
+        [AdminFilter]
         public ActionResult AddNew()
         {
             return View("CreateEmployee", new CreateEmployeeViewModel());
         }
 
+        [AdminFilter]
+        [ValidateAntiForgeryToken]
         public ActionResult SaveEmployee(Employee e, string BtnSubmit)
         {
             if (BtnSubmit != "Save Employee") return RedirectToAction("Index");
@@ -57,9 +62,59 @@ namespace MVC.Controllers
 
         }
 
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            Employee employee = db.Employees.Find(id);
+            if (employee == null) return NotFound();
+            return View("Delete", employee);
 
+        }
 
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var employee = await db.Employees.SingleOrDefaultAsync
+                (m => m.EmployeeId == id);
+            db.Employees.Remove(employee);
+            await db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null) return NotFound();
+            var employee = await db.Employees.SingleOrDefaultAsync(m => m.EmployeeId == id);
+            if (employee == null) return NotFound();
+            return View("Edit", employee);
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id,
+            [Bind("EmployeeId,FirstName,LastName,Salary")] Employee employee)
+        {
+            if (id != employee.EmployeeId) return NotFound();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Update(employee);
+                    await db.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!EmployeeExists(employee.EmployeeId)) return NotFound();
+                    throw;
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(employee);
+        }
+        private bool EmployeeExists(int id)
+        {
+            return db.Employees.Any(e => e.EmployeeId == id);
+        }
     }
-    }
+}

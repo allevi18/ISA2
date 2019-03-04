@@ -47,3 +47,6 @@ C:\Users\User\source\repos\allevi\start\MVC\bin\Debug\netcoreapp2.2\NUnit3.TestA
 C:\Users\User\source\repos\allevi\start\MVC\bin\Debug\netcoreapp2.2\nunit.engine.dll
 C:\Users\User\source\repos\allevi\start\MVC\bin\Debug\netcoreapp2.2\nunit.engine.api.dll
 C:\Users\User\source\repos\allevi\start\MVC\bin\Debug\netcoreapp2.2\nunit.engine.netstandard.dll
+C:\Users\User\source\repos\allevi\start\MVC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Components\NewLink\AddNewLink.g.cshtml.cs
+C:\Users\User\source\repos\allevi\start\MVC\obj\Debug\netcoreapp2.2\Razor\Views\Employee\Delete.g.cshtml.cs
+C:\Users\User\source\repos\allevi\start\MVC\obj\Debug\netcoreapp2.2\Razor\Views\Employee\Edit.g.cshtml.cs
